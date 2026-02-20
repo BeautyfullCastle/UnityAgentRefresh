@@ -21,7 +21,16 @@ curl -X POST http://localhost:7788/refresh -H "Content-Length: 0"
 
 Response:
 ```json
-{"success": true, "message": "Refresh triggered"}
+{
+  "success": true, 
+  "message": "Refresh completed", 
+  "hasErrors": true,
+  "errorCount": 2,
+  "errors": [
+    {"type": "Error", "message": "..."},
+    {"type": "Exception", "message": "..."}
+  ]
+}
 ```
 
 ### GET /status
@@ -34,7 +43,46 @@ curl http://localhost:7788/status
 
 Response:
 ```json
-{"running": true, "port": 7788}
+{"running": true, "port": 7788, "bufferedLogs": 42, "errors": 3}
+```
+
+### GET /logs?count=N
+
+Retrieves the latest console logs.
+
+```bash
+curl http://localhost:7788/logs?count=10
+```
+
+Response:
+```json
+{"logs": [{"type": "Log", "message": "..."}, ...], "count": 10}
+```
+
+### GET /errors
+
+Retrieves the latest error logs.
+
+```bash
+curl http://localhost:7788/errors
+```
+
+Response:
+```json
+{"logs": [{"type": "Error", "message": "..."}, ...], "count": 2}
+```
+
+### POST /clear
+
+Clears the log buffer.
+
+```bash
+curl -X POST http://localhost:7788/clear -H "Content-Length: 0"
+```
+
+Response:
+```json
+{"success": true, "message": "Log buffer cleared"}
 ```
 
 ## How It Works
