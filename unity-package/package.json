@@ -1,0 +1,12 @@
+{
+  "name": "com.beautyfullcastle.agent-refresh",
+  "version": "1.0.0",
+  "displayName": "Agent Refresh Server",
+  "description": "HTTP bridge for external AI agents to trigger Unity's AssetDatabase.Refresh()",
+  "unity": "2021.3",
+  "author": {
+    "name": "BeautyfullCastle",
+    "url": "https://github.com/BeautyfullCastle"
+  },
+  "keywords": ["ai", "automation", "agent", "refresh", "mcp"]
+}

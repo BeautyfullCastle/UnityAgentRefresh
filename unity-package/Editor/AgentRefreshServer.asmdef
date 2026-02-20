@@ -1,0 +1,8 @@
+{
+  "name": "AgentRefreshServer.Editor",
+  "rootNamespace": "AgentRefreshServer",
+  "includePlatforms": ["Editor"],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "autoReferenced": true
+}
